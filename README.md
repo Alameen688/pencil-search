@@ -34,7 +34,15 @@ http://localhost:3000/search?q=Explain%20enzyme%20action%20in%20terms%20of%20the
 
 Sample response
 ```
-{"data":[10,19,55,77,127] }
+{
+  "data":[
+    10,
+    19,
+    55,
+    77,
+    127
+  ]
+}
 ```
 
 Returns all questions that contain an annotation which is anywhere in the subtree of the query topic. 
