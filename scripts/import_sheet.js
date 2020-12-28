@@ -43,7 +43,7 @@ const mapQuestionToTopic = (insertedTopics, questions) => {
     for (const key in question) {
       if (key.startsWith('__EMPTY')) break;
       if (key.toLowerCase() === 'question number') {
-        record.no = question[key];
+        record.question_number = question[key];
         continue;
       }
       const annotation = question[key];

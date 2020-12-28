@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const QuestionSchema = new Schema({
-  no: { type: Number, required: true },
+  question_number: { type: Number, required: true },
   annotations: [{ type: mongoose.Types.ObjectId }],
 });
 
