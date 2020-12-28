@@ -7,15 +7,11 @@ mongoose.connect(database_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    // poolSize: 5,
-    // autoIndex: true
 }).then(() => {
     console.log("Database connection successful");
 }).catch(err => {
     console.log('Error connecting to database. Exiting now...', err);
     process.exit();
 });
-
-// mongoose.set('useFindAndModify', false);
 
 module.exports = mongoose.connection;
