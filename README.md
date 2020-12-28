@@ -1,4 +1,6 @@
 # Pencil search
+Stores and create an index over question objects in MongoDB, and provides a NodeJS + Express based server that exposes a RESTful API to query the index and return questions that match the query.
+
 Access live url at https://pencil-search.herokuapp.com/
 
 ## Setup
@@ -27,6 +29,9 @@ npm start
 ```bash
 $ node scripts/import_sheet.js
 ```
+
+This populates the db with the spreadsheet at 
+PS: A copy of the current spreadsheet at the time of creating this is included in the codebase at `data/Questions_and_Topics.xlsx` for prosterity just in case the original gets modified or deleted.
 
 ## Example request
 
