@@ -24,7 +24,7 @@ You should be able to access the server at `https://pencil-search.herokuapp.com/
 npm start
 ```
 
-# Populate DB from Spreadsheet
+### Populate DB from Spreadsheet
 
 ```bash
 $ node scripts/import_sheet.js
