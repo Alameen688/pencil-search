@@ -7,6 +7,6 @@ const TopicSchema = new Schema({
   path: { type: String },
 });
 
-TopicSchema.index({ path: 1 });
+TopicSchema.index({ name_lower: 1, path: 1 });
 
 module.exports = mongoose.model('Topic', TopicSchema);
