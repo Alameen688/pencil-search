@@ -11,9 +11,12 @@ exports.get = async (req, res, next) => {
     const subTopics = await TopicModel.find({ path: expr });
     const possibleTopics = subTopics.map((s) => s['_id']);
     possibleTopics.push(topic._id);
-    const result = await QuestionModel.find({
-      annotations: { $in: possibleTopics },
-    });
+    const result = await QuestionModel.find(
+      {
+        annotations: { $in: possibleTopics },
+      },
+      { no: 1 }
+    );
     res.json({ data: result });
   } catch (error) {
     console.log(error);
