@@ -1,13 +1,8 @@
 const mongoose = require('mongoose');
 const config = require('./config');
 
-const DATABASE_URL =
-  config.deploy_env === 'production'
-    ? config.db_url
-    : 'mongodb://localhost:27017/pencil-db-test';
-
 mongoose
-  .connect(DATABASE_URL, {
+  .connect(config.db_url, {
     keepAlive: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
