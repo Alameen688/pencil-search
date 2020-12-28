@@ -9,7 +9,6 @@ const ObjectId = mongoose.Types.ObjectId;
 const mapTopicTree = (topics) => {
   const insertedTopics = {};
   const topicsRecord = [];
-  //TODO: batch insert of 1,000 if topics array for better insertMany
   for (const topic of topics) {
     let path = ',';
 
@@ -26,6 +25,7 @@ const mapTopicTree = (topics) => {
         topicsRecord.push({
           _id: topicId,
           name,
+          name_lower: name.toLowerCase(), //extra field for performant case-insensitive query
           path: path === ',' ? null : path,
         });
       }
@@ -55,6 +55,7 @@ const mapQuestionToTopic = (insertedTopics, questions) => {
   return { questionsRecord };
 };
 
+//TODO: batch insert of 1,000 if topics array for better insertMany
 const saveTopicsToDb = async (topics) => TopicModel.insertMany(topics);
 const saveQuestionsToDb = async (questions) =>
   QuestionModel.insertMany(questions);

@@ -5,7 +5,7 @@ exports.get = async (req, res, next) => {
   const { q } = req.query;
   if (!q) return res.status(400).json({ message: 'Provide a query' });
   try {
-    const topic = await TopicModel.findOne({ name: q });
+    const topic = await TopicModel.findOne({ name_lower: q.toLowerCase() });
     if (!topic) return res.json({ message: "Topic doesn't exist" });
     const expr = RegExp(`,${topic._id},`);
     const subTopics = await TopicModel.find({ path: expr });
